@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 450px;
+        height: 270px;
+        border: 2px solid palevioletred;
+        margin-left: 20px;
+    }
+    .child1,.child2,.child3,.child4{
+        margin-left: 70px;
+    }
+    .container p{
+        text-align: center;
+        color:rgb(36, 95, 147)
+    }
+    .child5{
+        text-align: center;
+        
+    }
+
+    .text{
+        color:red;
+        margin-bottom: none;
+        margin-left: 20px;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <div class="container">
+        <p><b>BẢNG ĐIỂM CỦA EM </b> </p>
+        <div class="child1">
+            Semester1 <input type="number" id="se1" name="firstname"> <br></br>
+        </div>
+        <div class="child2">
+            Semester2 <input type="number" id="se2" name="number"> <br></br>
+        </div>
+        <div class="child3">
+            year:  <select name="" id="select">
+                <option value="1"> 1</option>
+                <option value="2"> 2</option>
+                <option value="3"> 3</option>
+            </select> <br></br>
+        </div>
+            
+        <div class= "child4">
+            Sumarises <input type="number" id="tb" name="number"> <br></br>
+        </div>
+        <div class="text" id="display">Học sinh giỏi  </div>
+        <div class="child5">
+            <button onclick="myFuntion1()"> OK </button>
+            <button> cancel</button>
+        </div>
+    </div > 
+    <script>
+        function myFuntion1(){
+            var se1 =parseInt( document.getElementById("se1").value);
+            var se2 = parseInt(document.getElementById("se2").value);
+            var se3 = document.getElementById("select");
+            var value = parseInt(se3.options[se3.selectedIndex].value);
+
+            var kq;
+            switch(value){
+                case 1:
+                    kq=parseFloat((se1+(se2*2))/2);
+                    document.getElementById("tb").value=kq;
+                case 2:
+                    kq=parseFloat(((se1*2)+(se2*3))/5);
+                    document.getElementById("tb").value=kq;
+                case 3: 
+                    kq=parseFloat((se1*3)+(se2*4))/7;
+                    document.getElementById("tb").value=kq;
+
+            }
+            if(kq>=9){
+                document.getElementById("display").innerHTML = "Học sinh giỏi";
+                document.getElementById("display").style.color="red"
+            }
+            if(kq>=7 && kq<=9){
+                document.getElementById("display").innerHtml = "Học sinh khá";
+                document.getElementById("display").style.color ="blue";
+            }
+            if(kq>=5 && kq<7){
+                document.getElementById("display").innerHtml ="Học sinh yếu";
+                document.getElementById("display").style.color ="yellow";
+            }
+        }
+    </script>
+</body>
+</html>
